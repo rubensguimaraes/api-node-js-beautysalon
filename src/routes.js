@@ -12,7 +12,8 @@ import NotificationController from './app/controllers/NotificationController';
 
 import authMiddleware from './app/middlewares/auth';
 
-const routes = new Router(); // a variável routes representa o Router que importamos do express
+const routes = new Router(); /* a variável routes representa o Router que
+                                importamos do express */
 const upload = multer(multerConfig);
 
 // O método utilizado será o Post, e a regra para inclusão do registro
@@ -20,9 +21,10 @@ const upload = multer(multerConfig);
 routes.post('/users', UserController.store);
 routes.post('/sessions', SessionController.store);
 
-// Aqui chamamos o meddleware (pasta middlewares\auth.js) que fará a verificação do token
-// Se não for executado o next em auth.js a aplicação não prosseguirá para a próxima rota
-// que é a a rota da linha 21, onde é feita a alteração dos dados.
+/* Aqui chamamos o meddleware (pasta middlewares\auth.js) que fará a verificação
+   do token se não for executado o next em auth.js a aplicação não prosseguirá
+   para a próxima rota  que é a a rota da linha 21, onde é feita a alteração dos
+   dados. */
 routes.use(authMiddleware);
 
 routes.put('/users', UserController.update);
@@ -35,6 +37,7 @@ routes.post('/appointments', AppointmentController.store);
 routes.get('/schedule', ScheduleController.index);
 
 routes.get('/notifications', NotificationController.index);
+routes.put('/notifications/:id', NotificationController.update);
 
 routes.post('/files', upload.single('file'), FileController.store);
 

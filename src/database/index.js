@@ -35,7 +35,7 @@ class Database {
   mongo() {
     // Faz a conexão com o banco de dados
     this.mongoConnection = mongoose.connect(
-      'mongodb://localhost:27017/gobeautysalon',
+      'mongodb://localhost:27017/beautysalon',
       {
         useNewUrlParser: true,
         useFindAndModify: true,
