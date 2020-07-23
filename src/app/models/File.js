@@ -9,6 +9,8 @@ class File extends Model {
         url: {
           type: Sequelize.VIRTUAL,
           get() {
+            /* Importante, quando for feito o deploy no servidor, deve ser
+               alterado o localhost para o IP do servidor */
             return `http://localhost:3333/files/${this.path}`;
           },
         },
